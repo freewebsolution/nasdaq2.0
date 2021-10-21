@@ -1,0 +1,204 @@
+{
+    "intraday": [
+        {
+            "symbol": "AAPL34.BVMF",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "203.21",
+                    "close": "207.44",
+                    "high": "211.46",
+                    "low": "204.31",
+                    "volume": "759337"
+                }
+            }
+        },
+        {
+            "symbol": "AAPL.XBOG",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "198.21",
+                    "close": "199.44",
+                    "high": "201.46",
+                    "low": "196.31",
+                    "volume": "759337"
+                }
+            }
+        },
+        {
+            "symbol": "AAPL.XSGO",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "220",
+                    "close": "185.22",
+                    "high": "293.46",
+                    "low": "285.31",
+                    "volume": "759337"
+                }
+            }
+        },
+        {
+            "symbol": "AMZ.XFRA",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "520",
+                    "close": "205.44",
+                    "high": "209.46",
+                    "low": "202.31",
+                    "volume": "858839"
+                }
+            }
+        },
+        {
+            "symbol": "AMZ.XETRA",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "1310",
+                    "close": "205.44",
+                    "high": "209.46",
+                    "low": "202.31",
+                    "volume": "858839"
+                }
+            }
+        },
+        {
+            "symbol": "AMZ.XTSX",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "1500",
+                    "close": "205.44",
+                    "high": "209.46",
+                    "low": "202.31",
+                    "volume": "858839"
+                }
+            }
+        },
+        {
+            "symbol": "NETF.XTSX",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "223",
+                    "close": "305.44",
+                    "high": "306.46",
+                    "low": "298.31",
+                    "volume": "119547"
+                }
+            }
+        },
+        {
+            "symbol": "NETF.FRCTSX",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "171",
+                    "close": "305.44",
+                    "high": "306.46",
+                    "low": "298.31",
+                    "volume": "119547"
+                }
+            }
+        },
+        {
+            "symbol": "NETF.ITASP",
+            "stock_exchange_short": "NASDAQ",
+            "timezone_name": "America/New_York",
+            "intraday": {
+                "AAAA-MM-GG 09:31:00": {
+                    "open": "254",
+                    "close": "305.44",
+                    "high": "306.46",
+                    "low": "298.31",
+                    "volume": "119547"
+                }
+            }
+        }
+    ],
+    "search_term": [
+        {
+            "symbol": "AAPL34.BVMF",
+            "name": "APPLE DRN",
+            "currency": "USD",
+            "price": "203.21",
+            "stock_exchange_long": "B3 - Brasil Bolsa Balcão S.A",
+            "stock_exchange_short": "Bovespa"
+        },
+        {
+            "symbol": "AAPL.XSGO",
+            "name": "APPLE INC",
+            "currency": "USD",
+            "price": "220",
+            "stock_exchange_long": "Santiago Stock Exchange",
+            "stock_exchange_short": "BVS"
+        },
+        {
+            "symbol": "AAPL.XBOG",
+            "name": "APPLE INC",
+            "currency": "USD",
+            "price": "198.21",
+            "stock_exchange_long": "Bolsa de Valores de Colombia",
+            "stock_exchange_short": "BVC"
+        },
+        {
+            "symbol": "AMZ.XFRA",
+            "name": "AMAZON.COM INC. DL-,01",
+            "currency": "USD",
+            "price": "520",
+            "stock_exchange_long": "Deutsche Börse",
+            "stock_exchange_short": "FSX"
+        },
+        {
+            "symbol": "AMZ.XETRA",
+            "name": "AMAZON.COM INC. DL-,01",
+            "currency": "USD",
+            "price": "1310",
+            "stock_exchange_long": "Deutsche Börse Xetra",
+            "stock_exchange_short": "XETR"
+        },
+        {
+            "symbol": "AMZ.XTSX",
+            "name": "AMAZON AZUCAR MINERALS LTD",
+            "currency": "USD",
+            "price": "1500",
+            "stock_exchange_long": "TSX Venture Exchange",
+            "stock_exchange_short": "XTSX"
+        },
+        {
+            "symbol": "NETF.XTSX",
+            "name": "NETFIX USA ANIMATION LTD",
+            "currency": "USD",
+            "price": "223",
+            "stock_exchange_long": "TSX HOLLYWOOD Exchange",
+            "stock_exchange_short": "NTSX"
+        },
+        {
+            "symbol": "NETF.FRCTSX",
+            "name": "NETFIX FRANCE FILM SERIES",
+            "currency": "FRA",
+            "price": "171",
+            "stock_exchange_long": "TSX MONACO STOCK",
+            "stock_exchange_short": "NTFR"
+        },
+        {
+            "symbol": "NETF.ITASP",
+            "name": "NETFIX ITA PRIMARY VISION STD",
+            "currency": "USD",
+            "price": "254",
+            "stock_exchange_long": "TSXIT MILAN Borsa",
+            "stock_exchange_short": "NTITA"
+        }
+    ]
+}

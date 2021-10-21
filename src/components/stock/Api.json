@@ -1,0 +1,32 @@
+{
+    "total_returned": "4",
+    "total_results": "4",
+    "total_pages": "0",
+    "limit": "100",
+    "data": [
+        {
+            "symbol": "AMZ.XFRA",
+            "name": "AMAZON.COM INC. DL-,01",
+            "currency": "USD",
+            "price": "200",
+            "stock_exchange_long": "Deutsche Börse",
+            "stock_exchange_short": "FSX"
+        },
+        {
+            "symbol": "AMZ.XETRA",
+            "name": "AMAZON.COM INC. DL-,01",
+            "currency": "USD",
+            "price": "200",
+            "stock_exchange_long": "Deutsche Börse Xetra",
+            "stock_exchange_short": "XETR"
+        },
+        {
+            "symbol": "AMZ.XTSX",
+            "name": "AZUCAR MINERALS LTD",
+            "currency": "USD",
+            "price": "200",
+            "stock_exchange_long": "TSX Venture Exchange",
+            "stock_exchange_short": "XTSX"
+        }
+    ]
+}
