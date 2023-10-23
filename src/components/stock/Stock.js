@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/stock/stock.css'
 import Grafico from '../Grafico';
+const token = process.env.REACT_APP_STOCK_API_TOKEN;
 
 class Stock extends Component {
 
@@ -53,7 +54,7 @@ class Stock extends Component {
         this.setState({ ckrealtime: ckrt })
     }
     getNewElementi = () => {
-        const url = `https://api.stockdata.org/v1/data/quote?symbols=${this.props.dati.ticker}&api_token=ZF98QgfKF03lubGEsUES5XIA0AnyYzOrJcpdv5N1`;
+        const url = `https://api.stockdata.org/v1/data/quote?symbols=${this.props.dati.ticker}&api_token=${token}`;
         console.log(url);
         fetch(url)
           .then(r => r.json())

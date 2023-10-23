@@ -4,6 +4,7 @@ import './css/App.css';
 import Stock from './components/stock/Stock';
 import Cerca from './components/Cerca';
 import NomeStock from './components/NomeStock';
+const token = process.env.REACT_APP_STOCK_API_TOKEN;
 
 export class App extends Component {
 
@@ -27,7 +28,7 @@ export class App extends Component {
     this.getElementi(str);
   }
   getElementi = str => {
-    const url = `https://api.stockdata.org/v1/data/quote?symbols=${str}&api_token=ZF98QgfKF03lubGEsUES5XIA0AnyYzOrJcpdv5N1`;
+    const url = `https://api.stockdata.org/v1/data/quote?symbols=${str}&api_token=${token}`;
     this.setState({ inCaricamento: true, showError: false, showAvviso: false })
     fetch(url)
     .then(r => r.json())
