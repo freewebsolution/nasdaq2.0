@@ -6,14 +6,14 @@ class Stock extends Component {
 
     constructor(props) {
         super(props);
-        const { symbol, price,} = this.props.dati
-        this.state = { symbol, price, datatrade: new Date().toLocaleTimeString(), ckrealtime: '', datigrafico: [{ datetime: new Date().toLocaleTimeString(), price: price }], showgrafico: false };
+        const { ticker, price,} = this.props.dati
+        this.state = { ticker, price, datatrade: new Date().toLocaleTimeString(), ckrealtime: '', datigrafico: [{ datetime: new Date().toLocaleTimeString(), price: price }], showgrafico: false };
         console.log('1f) FIGLIO Creo istanza');
     }
 
     static getDerivedStateFromProps(np, ps) {
-        if (np.dati.symbol !== ps.symbol) {
-            return { nome: np.dati.symbol, price: np.dati.price }
+        if (np.dati.ticker !== ps.ticker) {
+            return { nome: np.dati.ticker, price: np.dati.price }
         }
         return null;
     }
@@ -32,7 +32,7 @@ class Stock extends Component {
     //     this.setState({ valore })
     // }
     eliminoStock = () => {
-        this.props.eliminoStock(this.props.dati.symbol)
+        this.props.eliminoStock(this.props.dati.ticker)
     }
     startCheckElemento = () => {
         this.timer = setInterval(() => this.getNewElementi(), 10000)
@@ -53,28 +53,33 @@ class Stock extends Component {
         this.setState({ ckrealtime: ckrt })
     }
     getNewElementi = () => {
-        const url = `https://lucioticali.it/nasdaqApi/api/v1/intraday/${this.props.dati.symbol}`;
-        console.log(url)
+        const url = `https://api.stockdata.org/v1/data/quote?symbols=${this.props.dati.ticker}&api_token=ZF98QgfKF03lubGEsUES5XIA0AnyYzOrJcpdv5N1`;
+        console.log(url);
         fetch(url)
-            .then(r => r.json())
-            .then(r => {
-                const data = r;
-                console.log(data)
-                const random = Math.ceil(Math.random() * 10) * (Math.round(Math.random()) ? 1 : -1) / 3;
-                const datatrade = new Date().toLocaleTimeString() 
-                console.log(datatrade)
-                const price = Number(data[0].open) + random;
-                console.log(price)
-                const datigrafico = [...this.state.datigrafico, { datetime: datatrade.substring(11), price: price }]
-                this.setState({ price, datatrade, datigrafico })
-
-
-            })
-            .catch((error) => {
-                console.log('Fetch failed', error)
-            })
-
-    }
+          .then(r => r.json())
+          .then(data => {
+            console.log('Prostatic', data);
+      
+            // Assicurati che la struttura della risposta sia come previsto
+            // Verifica quale parte della risposta contiene l'informazione che stai cercando
+            const tickerData = data.data[0]; // Assumi che il ticker desiderato sia il primo elemento
+            const random = Math.ceil(Math.random() * 10) * (Math.round(Math.random()) ? 1 : -1) / 3;
+            const datatrade = new Date().toLocaleTimeString();
+            console.log(datatrade);
+      
+            // Verifica quale chiave nella risposta contiene il prezzo di apertura (day_open)
+            const dayOpen = tickerData.day_open;
+            const price = Number(dayOpen) + random;
+            console.log(price);
+      
+            const datigrafico = [...this.state.datigrafico, { datetime: datatrade.substring(11), price: price }];
+            this.setState({ price, datatrade, datigrafico });
+          })
+          .catch((error) => {
+            console.log('Fetch failed', error);
+          });
+      }
+      
     showGrafico = () => {
         this.setState({ showgrafico: !this.state.showgrafico })
     }
@@ -90,7 +95,7 @@ class Stock extends Component {
                     <i className="fas fa-times-circle closebtn" onClick={this.eliminoStock}></i>
                     <div className="row">
                         <div className="col-sm">
-                            <h2 className='giallo'>{this.props.dati.symbol}</h2>
+                            <h2 className='giallo'>{this.props.dati.ticker}</h2>
                             <p>Nasdaq</p>
                         </div>
                         <div className="col-sm">

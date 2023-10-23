@@ -21,75 +21,32 @@ export class App extends Component {
     console.log(`1g) il costruttore crea la prima istanza Genitore`)
   }
 
-  // -------MOUNTING CREAZIONE ----------
-  componentDidMount() {
-    // const stock = [
 
-    //   {
-    //     nome: 'APPL',
-    //     valore: 200
-    //   },
-    //   {
-    //     nome: 'GOOG',
-    //     valore: 350
-    //   }
-    // ]
-    // this.setState({ listaStock: stock })
-  }
-
-  // --------UPDATE AGGIORNAMENTO--------
-
-  // static getDerivedStaeFromProps(np,ns) {
-  //   return null
-  // }
-
-  // componentDidUpdate() {
-  //   console.log(`4g) DidUpdate padre ${this.state.nome}`)
-  // }
-  // aggiornoStock = (e) => {
-  //   e.preventDefault()
-  //   const stock1 = [
-
-  //     {
-  //       nome: 'AMZ',
-  //       valore: 250
-  //     },
-  //     {
-  //       nome: 'MICROSOFT',
-  //       valore: 750
-  //     },
-  //     {
-  //       nome: 'APPL',
-  //       valore: 1299
-  //     }
-  //   ]
-  //   this.setState({ listaStock: stock1 })
-  // }
   cercaElementi = str => {
-    //alert(`Stai cercando ${str}` )
+    console.log('Dati',this.state.listaelementi)
     this.getElementi(str);
   }
   getElementi = str => {
-    const url = `https://lucioticali.it/nasdaqApi/api/v1/search/${str}`;
+    const url = `https://api.stockdata.org/v1/data/quote?symbols=${str}&api_token=ZF98QgfKF03lubGEsUES5XIA0AnyYzOrJcpdv5N1`;
     this.setState({ inCaricamento: true, showError: false, showAvviso: false })
     fetch(url)
-      .then(r => r.json())
-      .then(r => {
-        console.log(r)
-        const data  = r;
-        console.log(`Lunghezza oggetto ${data.length}`)
-        if (data.length < 1) {
-          this.setState({ showAvviso: true, msgAvviso: 'Spiacente non ho trovato elementi, Riprova!', listaelementi: [] })
-        } else {
-          this.setState({ showAvviso: false, msgAvviso: '' })
-        }
-        this.setState({ listaelementi: data, inCaricamento: false })
-        console.log('Recupero dati ' + JSON.stringify(r))
-      })
-      .catch((error) => {
-        this.setState({ inCaricamento: false, showError: true, msg: error.message })
-        console.log('Fetch failed', error)
-      })
+    .then(r => r.json())
+    .then(r => {
+      console.log('Risposta API', r);
+      const data = r.data; // Assicurati che "data" sia l'array corretto
+      console.log('Data:', data);
+      if (Array.isArray(data)) {
+        this.setState({ listaelementi: data, inCaricamento: false });
+        console.log('Stato impostato correttamente');
+      } else {
+        console.error('I dati ricevuti non sono un array');
+      }
+    })
+    .catch((error) => {
+      this.setState({ inCaricamento: false, showError: true, msg: error.message });
+      console.error('Fetch failed', error);
+    });
+  
 
   }
   addPreferiti = ids => {
@@ -120,7 +77,15 @@ export class App extends Component {
                   {this.state.inCaricamento && <p className='text-center'>Caricamento in corso ...</p>}
                   {this.state.showError && <p className='text-center'>{this.state.msg}</p>}
                   {this.state.showAvviso && <p className="text-center">{this.state.msgAvviso}</p>}
-                  {this.state.listaelementi.map((el, index) => <NomeStock key={index} dati={el} ids={index} onAddPreferiti={this.addPreferiti} />)}
+                  {Array.isArray(this.state.listaelementi) && this.state.listaelementi.length > 0 ? (
+                    this.state.listaelementi.map((el, index) => (
+                      <NomeStock key={index} data={el} ids={index} onAddPreferiti={this.addPreferiti} />
+                    ))
+                  ) : (
+                    <p>Nessun risultato trovato</p>
+                  )}
+                  
+                                   
                 </div>
               </div>
             </section>
